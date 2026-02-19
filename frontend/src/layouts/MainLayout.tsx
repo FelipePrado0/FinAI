@@ -5,7 +5,7 @@ import Header from '../components/Header';
 
 const MainLayout = () => {
     return (
-        <div className="flex h-screen overflow-hidden bg-background-light dark:bg-background-dark font-display">
+        <div className="flex h-full w-full overflow-hidden bg-background-light dark:bg-background-dark font-display">
             <Sidebar />
             <main className="flex-1 flex flex-col overflow-hidden">
                 <Header />

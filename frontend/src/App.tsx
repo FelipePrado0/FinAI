@@ -1,6 +1,8 @@
 import { BrowserRouter, Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import Login from './pages/Login';
 import Dashboard from './pages/Dashboard';
+import Settings from './pages/Settings';
+import Subscription from './pages/Subscription';
 import PlaceholderPage from './pages/PlaceholderPage';
 import MainLayout from './layouts/MainLayout';
 import './App.css';
@@ -20,8 +22,8 @@ const AnimatedRoutes = () => {
         <Route path="/chat" element={<PlaceholderPage title="IA Consultor" />} />
         <Route path="/goals" element={<PlaceholderPage title="Metas" />} />
         <Route path="/automations" element={<PlaceholderPage title="Automações" />} />
-        <Route path="/subscription" element={<PlaceholderPage title="Assinatura" />} />
-        <Route path="/settings" element={<PlaceholderPage title="Configurações" />} />
+        <Route path="/subscription" element={<Subscription />} />
+        <Route path="/settings" element={<Settings />} />
       </Route>
 
       <Route path="*" element={<Navigate to="/" replace />} />
