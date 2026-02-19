@@ -1,1 +1,56 @@
 @import "tailwindcss";
+
+@layer base {
+
+    html,
+    body,
+    #root {
+        height: 100%;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+    }
+
+    body {
+        background-color: var(--color-background-dark);
+        color: #f1f5f9;
+        /* slate-100 */
+    }
+}
+
+@theme {
+    --font-display: "Inter", "sans-serif";
+
+    --color-primary: #2b6cee;
+    --color-background-light: #f6f6f8;
+    --color-background-dark: #101622;
+
+    --radius-lg: 0.5rem;
+    --radius-xl: 0.75rem;
+}
+
+/* Material Symbols settings */
+.material-symbols-outlined {
+    font-variation-settings:
+        'FILL' 0,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 24
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-fade-in {
+    animation: fadeIn 0.4s ease-out forwards;
+}

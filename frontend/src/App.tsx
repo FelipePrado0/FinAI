@@ -1,37 +1,40 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { BrowserRouter, Routes, Route, Navigate, useLocation } from 'react-router-dom';
+import Login from './pages/Login';
+import Dashboard from './pages/Dashboard';
+import PlaceholderPage from './pages/PlaceholderPage';
+import MainLayout from './layouts/MainLayout';
+import './App.css';
 
-function App() {
-  const [count, setCount] = useState(0)
+// Wrapper para animações de rota (simples fade-in)
+const AnimatedRoutes = () => {
+  const location = useLocation();
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-900 text-white p-4">
-      <div className="flex gap-4 mb-8">
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="w-24 h-24 hover:scale-110 transition-transform" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="w-24 h-24 animate-spin-slow" alt="React logo" />
-        </a>
-      </div>
-      <h1 className="text-4xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">
-        FinAI Setup Complete! 🚀
-      </h1>
-      <div className="card p-6 bg-gray-800 rounded-xl shadow-lg text-center">
-        <button
-          onClick={() => setCount((count) => count + 1)}
-          className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition-colors"
-        >
-          count is {count}
-        </button>
-        <p className="mt-4 text-gray-400">
-          Tailwind CSS & React working perfectly.
-        </p>
-      </div>
-    </div>
-  )
+    <Routes location={location} key={location.pathname}>
+      <Route path="/" element={<Login />} />
+
+      {/* Rotas Autenticadas */}
+      <Route element={<MainLayout />}>
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/transactions" element={<PlaceholderPage title="Transações" />} />
+        <Route path="/chat" element={<PlaceholderPage title="IA Consultor" />} />
+        <Route path="/goals" element={<PlaceholderPage title="Metas" />} />
+        <Route path="/automations" element={<PlaceholderPage title="Automações" />} />
+        <Route path="/subscription" element={<PlaceholderPage title="Assinatura" />} />
+        <Route path="/settings" element={<PlaceholderPage title="Configurações" />} />
+      </Route>
+
+      <Route path="*" element={<Navigate to="/" replace />} />
+    </Routes>
+  );
+};
+
+function App() {
+  return (
+    <BrowserRouter>
+      <AnimatedRoutes />
+    </BrowserRouter>
+  );
 }
 
-export default App
+export default App;
