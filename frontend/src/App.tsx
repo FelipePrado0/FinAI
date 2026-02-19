@@ -3,6 +3,7 @@ import Login from './pages/Login';
 import Dashboard from './pages/Dashboard';
 import Settings from './pages/Settings';
 import Subscription from './pages/Subscription';
+import Transactions from './pages/Transactions';
 import PlaceholderPage from './pages/PlaceholderPage';
 import MainLayout from './layouts/MainLayout';
 import './App.css';
@@ -18,7 +19,7 @@ const AnimatedRoutes = () => {
       {/* Rotas Autenticadas */}
       <Route element={<MainLayout />}>
         <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/transactions" element={<PlaceholderPage title="Transações" />} />
+        <Route path="/transactions" element={<Transactions />} />
         <Route path="/chat" element={<PlaceholderPage title="IA Consultor" />} />
         <Route path="/goals" element={<PlaceholderPage title="Metas" />} />
         <Route path="/automations" element={<PlaceholderPage title="Automações" />} />

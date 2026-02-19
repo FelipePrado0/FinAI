@@ -14,4 +14,8 @@ app.get('/', (req, res) => {
     res.json({ message: 'FinAI API is running 🚀' });
 });
 
+// Error handling middleware
+const errorMiddleware = require('./middlewares/errorMiddleware');
+app.use(errorMiddleware);
+
 module.exports = app;
